@@ -1,13 +1,14 @@
 package com.brunoyam.unit_3_2.generics;
 
-public final class BrunoMath {
+public final class BrunoMath<T> {
 
     private BrunoMath() {}
 
-    public static int sum(int[] values) {
-        int result = 0;
-        for(int value : values) {
-            result += value;
+
+    public BrunoMath<T> sum(T[] values) {
+        BrunoMath<T> result = new BrunoMath<>();
+        for(T value : values) {
+            result = (BrunoMath<T>) value;
         }
         return result;
     }
@@ -26,10 +27,10 @@ public final class BrunoMath {
         return result;
     }
 
-    public static double avg(int[] values) {
-        if (values.length == 0) return 0;
+    public BrunoMath<T> avg(T[] values) {
+        if (values.length == 0) return null;
 
-        double sum = sum(values);
+        BrunoMath<T> sum = sum(values);
         return sum / values.length;
     }
 
