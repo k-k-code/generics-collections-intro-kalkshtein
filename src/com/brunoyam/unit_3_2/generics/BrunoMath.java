@@ -1,20 +1,46 @@
 package com.brunoyam.unit_3_2.generics;
 
-public final class BrunoMath<T> {
+public final class BrunoMath<T> extends Number {
 
-    private BrunoMath() {}
+    T number1;
+    T number2;
+
+    private BrunoMath() {
+    }
+
+    @Override
+    public int intValue() {
+        return 0;
+    }
+
+    @Override
+    public long longValue() {
+        return 0;
+    }
+
+    @Override
+    public float floatValue() {
+        return 0;
+    }
+
+    @Override
+    public double doubleValue() {
+        return 0;
+    }
 
 
     public BrunoMath<T> sum(T[] values) {
         BrunoMath<T> result = new BrunoMath<>();
-        for(T value : values) {
+        for (T value : values) {
             result = (BrunoMath<T>) value;
         }
         return result;
     }
 
-    private static int max(int a, int b) {
-        return a > b ? a : b;
+    private T max(T a, T b) {
+        number1 = a;
+        number2 = b;
+        return number1 > number2 ? a : b;
     }
 
     public static int max(int[] values) {
